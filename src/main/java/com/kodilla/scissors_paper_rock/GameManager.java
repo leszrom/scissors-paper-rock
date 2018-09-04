@@ -4,26 +4,31 @@ import java.util.Scanner;
 
 class Commander {
 
-    static void mainMenu() {
+    private static void mainMenu() {
         System.out.println("Main Menu: ");
         System.out.println("[s] - Standar");
         System.out.println("[e] - Extended");
         System.out.println("[x] - Exit game");
     }
 
-    void command(Game game) {
+    private void gameProcess(Game game) {
+
         int playerChoice;
-        boolean loopCond;
-        do {
-            game.gameMenu();
-            playerChoice = game.inputFromPlayer();
-            loopCond = game.getResult(playerChoice, game.inputFromComputer(), game.getResultsTable());
-        } while (loopCond);
+         for (;;) {
+             game.gameMenu();
+             playerChoice = game.inputFromPlayer();
+             if(playerChoice == 0){
+                 return;
+             }
+             game.getResult(playerChoice, game.inputFromComputer(), game.getResultsTable());
+         }
     }
 
-    void gameProcess() {
+    void runGame() {
         Scanner scanner = new Scanner(System.in);
+
         for(;;) {
+            mainMenu();
             System.out.print("Take a choice: ");
             String choice = scanner.nextLine();
             System.out.println();
