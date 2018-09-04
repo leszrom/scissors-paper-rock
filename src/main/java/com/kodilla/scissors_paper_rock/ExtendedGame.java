@@ -1,6 +1,6 @@
 package com.kodilla.scissors_paper_rock;
 
-public class ExtendedGame implements Game {
+class ExtendedGame implements Game {
     private static int[][] resultsTable = {{0, 1, -1, 1, -1}, //s
             {-1, 0, 1, -1, 1}, //p
             {1, -1, 0, 1, -1}, //r
