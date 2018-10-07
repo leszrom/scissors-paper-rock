@@ -8,6 +8,13 @@ interface Game {
     Scanner scanner = new Scanner(System.in);
     Random rand = new Random();
 
+    default String takeAChoice(){
+        System.out.print("Take a choice: ");
+        String choice = scanner.nextLine();
+        System.out.println();
+        return choice;
+    }
+
     default void getResult(int inputFromPlayer, int inputFromComputer, int[][] resultsTable) {
         int result = resultsTable[inputFromPlayer - 1][inputFromComputer - 1];
         switch (result) {

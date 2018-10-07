@@ -1,7 +1,7 @@
 package com.kodilla.scissors_paper_rock;
 
 class BasicGame implements Game {
-    private static int[][] resultsTable = {{0, 1, -1}, //s
+    private final static int[][] resultsTable = {{0, 1, -1}, //s
             {-1, 0, 1}, //p
             {1, -1, 0}, //r
             {-1, 1, -1}, //l
@@ -25,11 +25,7 @@ class BasicGame implements Game {
     public int inputFromPlayer() {
 
         for (; ; ) {
-            System.out.print("Take a choice: ");
-            String choice = scanner.nextLine();
-            System.out.println();
-
-            switch (choice) {
+            switch (takeAChoice()) {
                 case "s":
                     System.out.println("Player 1: Scissors");
                     return 1;
